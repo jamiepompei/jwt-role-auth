@@ -55,4 +55,10 @@ public class UserController {
     public String userPing(){
         return "Any user can read this";
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping(value="/adminping", method = RequestMethod.GET)
+    public String adminPing(){
+        return "Only admins can read this!";
+    }
 }
